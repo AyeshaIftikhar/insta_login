@@ -55,7 +55,7 @@ InstaView(
 - _**Note:** The Platform setup is same as, we are suppose to setup our application for facebook login and other services._
 
 <p align="center">
-    <img src="setup/1.jpeg" width="350">
+    <img src="setup/1.jpg" width="350">
 </p>
 
 
