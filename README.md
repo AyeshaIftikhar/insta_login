@@ -17,17 +17,17 @@ This package is intended to let developers easily integrate instagram integratio
 ## Getting started
 
 ```dart
-dart pub add xor_encryption
+dart pub add insta_login
 ```
 
 ```dart
-import 'package:xor_encryption/xor_encryption.dart';
+import 'package:insta_login/insta_login.dart';
 ```
 
 ## Usage
 
 ```dart
-import 'package:xor_encryption/xor_encryption.dart';
+import 'package:insta_login/insta_login.dart';
 InstaView(
     instaAppId: '215643524910532',
     instaAppSecret:'b19d87bf98b632e0319f2ebab495b345',

@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'insta_login'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'This package is intended to let developers easily integrate instagram integration in Flutter Application. We will be using Instagram Basic Display API.'
   s.description      = <<-DESC
   This package is intended to let developers easily integrate instagram integration in Flutter Application. We will be using Instagram Basic Display API.
