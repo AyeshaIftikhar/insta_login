@@ -1,61 +1,81 @@
-import 'package:flutter/material.dart';
-import 'dart:async';
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 
-import 'package:flutter/services.dart';
-import 'package:insta_login/src/insta_login.dart';
+import 'package:flutter/material.dart';
+import 'package:insta_login/insta_login.dart';
+import 'package:insta_login/insta_view.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return const MaterialApp(home: Home());
+  }
 }
 
-class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
-  final _instaLoginPlugin = InstaLogin();
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  void initState() {
-    super.initState();
-    initPlatformState();
-  }
+  State<Home> createState() => _HomeState();
+}
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-    try {
-      platformVersion = await _instaLoginPlugin.getPlatformVersion() ??
-          'Unknown platform version';
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
-  }
+class _HomeState extends State<Home> {
+  String token = '', userid = '', username = '';
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+    return Scaffold(
+      appBar: AppBar(title: const Text('Plugin example app')),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (token != '' || userid != '' || username != '')
+                Text(
+                  'Access Token: $token\n\nUser Id: $userid\n\nUsername: $username',
+                )
+              else
+                SizedBox(
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return InstaView(
+                              instaAppId: '215643524910532',
+                              instaAppSecret:
+                                  'b19d87bf98b632e0319f2ebab495b345',
+                              redirectUrl: 'https://ayesha-iftikhar.web.app/',
+                              onComplete: (_token, _userid, _username) {
+                                WidgetsBinding.instance.addPostFrameCallback(
+                                  (timeStamp) {
+                                    setState(() {
+                                      token = _token;
+                                      userid = _userid;
+                                      username = _username;
+                                    });
+                                  },
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      );
+                    },
+                    child: const Text('Connect to Instagram'),
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );

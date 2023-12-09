@@ -5,13 +5,13 @@
 Pod::Spec.new do |s|
   s.name             = 'insta_login'
   s.version          = '0.0.1'
-  s.summary          = 'A new Flutter plugin project.'
+  s.summary          = 'This package is intended to let developers easily integrate instagram integration in Flutter Application. We will be using Instagram Basic Display API.'
   s.description      = <<-DESC
-A new Flutter plugin project.
+  This package is intended to let developers easily integrate instagram integration in Flutter Application. We will be using Instagram Basic Display API.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/AyeshaIftikhar/insta_login.git'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'ByteBrad Systems' => 'seayeshaiftikhar@gmail.com' }
 
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'

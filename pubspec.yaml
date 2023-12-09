@@ -1,7 +1,7 @@
 name: insta_login
-description: "A new Flutter plugin project."
+description: "This package is intended to let developers easily integrate instagram integration in Flutter Application. We will be using Instagram Basic Display API."
 version: 0.0.1
-homepage:
+homepage: https://github.com/AyeshaIftikhar/insta_login.git
 
 environment:
   sdk: '>=3.2.0 <4.0.0'
@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
+  flutter_web_plugins:
+    sdk: flutter
   webview_flutter: ^4.4.2
   http: ^1.1.2
 
@@ -34,6 +36,7 @@ flutter:
         pluginClass: InstaLoginPlugin
       windows:
         pluginClass: InstaLoginPluginCApi
+
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
