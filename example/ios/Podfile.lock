@@ -1,6 +1,6 @@
 PODS:
   - Flutter (1.0.0)
-  - insta_login (0.0.1):
+  - insta_login (0.0.2):
     - Flutter
   - integration_test (0.0.1):
     - Flutter
@@ -24,11 +24,11 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
 
 SPEC CHECKSUMS:
-  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  insta_login: d89613e3feeeadce5af6a5867dc53202de248adf
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  insta_login: 9f571fd37c0fae5b59110949aecfafa9b6d7e5ba
   integration_test: 13825b8a9334a850581300559b8839134b124670
   webview_flutter_wkwebview: 2e2d318f21a5e036e2c3f26171342e95908bd60a
 
 PODFILE CHECKSUM: a57f30d18f102dd3ce366b1d62a55ecbef2158e5
 
-COCOAPODS: 1.14.2
+COCOAPODS: 1.15.2

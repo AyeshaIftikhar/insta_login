@@ -136,7 +136,7 @@ class _InstaViewState extends State<InstaView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: kIsWeb
-          ? const Text('Under Contructions')
+          ? const Text('Under Construction')
           : WebViewWidget(controller: controller),
     );
   }

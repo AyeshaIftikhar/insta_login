@@ -1,3 +1,8 @@
+## 0.0.3
+
+* Users will be able to get Account Type and Media Count
+* Users will also be able to get uploaded Post's media. 
+
 ## 0.0.2
 
 * Fixed issues in README.md

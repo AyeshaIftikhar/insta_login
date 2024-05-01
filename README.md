@@ -1,16 +1,16 @@
 # Instagram Login/Connect
 
-
 This package is intended to let developers easily integrate instagram integration in Flutter Application. We will be using `Instagram Basic Display API`. Currently it is supporting the following:
 
-- Connect to Instagram 
+- Connect to Instagram
 - Get Access Token for a particular user
-- Get `userid` and `username`
+- Get `userid`, `username`, `account_type`, `media_count` and `media`.
+
+[![Thumbnail](demo/flutter_02.png)](https://youtube.com/shorts/wElaG-Kq_20?feature=share)
 
 ## Upcoming Features
 
 - Profile details in terms of (captions, email, etc)
-- Get User Posts & Reels
 - Download Reels
 - Complete Working support on Web, MacOS, Linux, & Windows Platform
 
@@ -45,7 +45,6 @@ InstaView(
 ),
 ```
 
-
 ## Setup
 
 - Create an app on [Facebook Developer Platform](), by selecting `other` and App Type as `Comsumer or other`.
@@ -58,69 +57,201 @@ InstaView(
     <img src="setup/1.jpg" width="350">
 </p>
 
-
 ## Example
 
 ```dart
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String token = '', userid = '', username = '';
+class _HomeState extends State<Home> {
+  String token = '', userid = '', username = '', accountType = '';
+  int mediaCount = -1;
+  List<dynamic> mediaList = [];
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Plugin example app')),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (token != '' || userid != '' || username != '')
-                  Text(
-                    'Access Token: $token\n\nUser Id: $userid\n\nUsername: $username',
-                  )
-                else
-                  SizedBox(
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return InstaView(
-                                instaAppId: '215643524910532',
-                                instaAppSecret:
-                                    'b19d87bf98b632e0319f2ebab495b345',
-                                redirectUrl: 'https://ayesha-iftikhar.web.app/',
-                                onComplete: (_token, _userid, _username) {
-                                  WidgetsBinding.instance.addPostFrameCallback(
-                                    (timeStamp) {
-                                      setState(() {
-                                        token = _token;
-                                        userid = _userid;
-                                        username = _username;
-                                      });
-                                    },
-                                  );
-                                },
-                              );
-                            },
+    return Scaffold(
+      appBar: AppBar(title: const Text('Plugin example app')),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (token != '' || userid != '' || username != '')
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Center(
+                        child: Text(
+                          '------Instagram Connected------',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
                           ),
-                        );
-                      },
-                      child: Text('Connect to Instagram'),
-                    ),
+                        ),
+                      ),
+                      5.vertical,
+                      InfoWidget(title: 'Access Token', subtitle: token),
+                      InfoWidget(title: 'Userid', subtitle: userid),
+                      InfoWidget(title: 'Username', subtitle: username),
+                      const SizedBox(height: 10),
+                      if (accountType != '' || mediaCount != -1)
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Center(
+                              child: Text(
+                                '------Basic Profile Details------',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                            5.vertical,
+                            InfoWidget(
+                              title: 'Media Count',
+                              subtitle: mediaCount.toString(),
+                            ),
+                            InfoWidget(
+                              title: 'Account Type',
+                              subtitle: accountType,
+                            ),
+                          ],
+                        )
+                      else
+                        Center(
+                          child: ElevatedButton(
+                            onPressed: () async {
+                              await Instaservices()
+                                  .getContent(
+                                      accesstoken: token, userid: userid)
+                                  .then((value) {
+                                if (value != null) {
+                                  accountType = value['account_type'];
+                                  mediaCount = value['media_count'];
+                                }
+                                setState(() {});
+                              });
+                            },
+                            child: const Text('Get Basic Profile Details'),
+                          ),
+                        ),
+                      const SizedBox(height: 10),
+                      if (mediaList.isNotEmpty)
+                        Expanded(
+                          child: Column(
+                            children: [
+                              const Center(
+                                child: Text(
+                                  '------Media List------',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                              5.vertical,
+                              Expanded(
+                                child: GridView.count(
+                                  crossAxisCount: 3,
+                                  crossAxisSpacing: 10,
+                                  mainAxisSpacing: 10,
+                                  children: List.generate(
+                                    mediaList.length,
+                                    (index) {
+                                      var media = mediaList[index];
+                                      return InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailScreen(
+                                                url: media['media_url'],
+                                                media: media,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            image: DecorationImage(
+                                              image: NetworkImage(
+                                                  media['media_url']),
+                                            ),
+                                          ),
+                                          child: media['media_type'] == 'VIDEO'
+                                              ? const Icon(Icons.videocam)
+                                              : null,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      else
+                        Center(
+                          child: ElevatedButton(
+                            onPressed: () async {
+                              await Instaservices()
+                                  .fetchUserMedia(
+                                userId: userid,
+                                accessToken: token,
+                              )
+                                  .then((value) {
+                                mediaList = value;
+                                setState(() {});
+                              });
+                            },
+                            child: const Text('Get Media'),
+                          ),
+                        )
+                    ],
                   ),
-              ],
-            ),
+                )
+              else
+                SizedBox(
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return InstaView(
+                              instaAppId: '215643524910532',
+                              instaAppSecret:
+                                  'b19d87bf98b632e0319f2ebab495b345',
+                              redirectUrl: 'https://ayesha-iftikhar.web.app/',
+                              onComplete: (_token, _userid, _username) {
+                                WidgetsBinding.instance.addPostFrameCallback(
+                                  (timeStamp) {
+                                    setState(() {
+                                      token = _token;
+                                      userid = _userid;
+                                      username = _username;
+                                    });
+                                  },
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      );
+                    },
+                    child: const Text('Connect to Instagram'),
+                  ),
+                ),
+            ],
           ),
         ),
       ),
@@ -132,7 +263,11 @@ class _MyAppState extends State<MyApp> {
 ## Screenshots
 
 <p align="center">
-    <img src="demo/flutter_01.png" width="250">
     <img src="demo/2.jpeg" width="250">
-    <img src="demp/flutter_02.png" width="250">
+    <img src="demo/flutter_01.png" width="250">
+    <img src="demo/flutter_02.png" width="250">
+</p>
+
+<p align="center">
+  <img src="demo/flutter_03.png" width="250">
 </p>
