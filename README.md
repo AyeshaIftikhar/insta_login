@@ -6,6 +6,9 @@ This package is intended to let developers easily integrate instagram integratio
 - Get Access Token for a particular user
 - Get `userid`, `username`, `account_type`, `media_count` and `media`.
 
+| [![Thumbnail](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/2.jpeg)](https://youtube.com/shorts/wElaG-Kq_20?feature=share)      |  
+| --------------------------------------- | --------------------------------------- | 
+
 [![Thumbnail](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/2.jpeg)](https://youtube.com/shorts/wElaG-Kq_20?feature=share)
 
 
@@ -263,6 +266,6 @@ class _HomeState extends State<Home> {
 
 ## Screenshots
 
-| ![screenshot 1](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/2.jpeg)       | ![screenshot 2](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/flutter_01.png) | ![screenshot 3](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/flutter_02.png) |
+| ![screenshot 1](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/2.jpeg)       |  ![screenshot 2](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/flutter_01.png)       | ![screenshot 3](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/flutter_02.png)       |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| ![screenshot 4](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/flutter_03.png) |       
+| ![screenshot 4](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/flutter_03.png)       |       
