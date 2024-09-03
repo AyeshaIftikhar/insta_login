@@ -6,10 +6,8 @@ This package is intended to let developers easily integrate instagram integratio
 - Get Access Token for a particular user
 - Get `userid`, `username`, `account_type`, `media_count` and `media`.
 
-<div style="text-align:center">
-  <iframe width="420" height="315" src="https://youtube.com/shorts/wElaG-Kq_20">
-  </iframe>
-</div>
+[![Thumbnail](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/2.jpeg)](https://youtube.com/shorts/wElaG-Kq_20?feature=share)
+
 
 ## Upcoming Features
 
@@ -56,9 +54,9 @@ InstaView(
 - On Facebook Developer Platform, Add your required platforms in the settings.
 - _**Note:** The Platform setup is same as, we are suppose to setup our application for facebook login and other services._
 
-<div style="text-align:center">
-    <img src="https://github.com/AyeshaIftikhar/insta_login/blob/main/setup/1.jpg" width="350">
-</div>
+
+![setup](https://github.com/AyeshaIftikhar/insta_login/blob/main/setup/1.jpg)
+
 
 ## Example
 
@@ -265,12 +263,6 @@ class _HomeState extends State<Home> {
 
 ## Screenshots
 
-<div style="text-align:center">
-    <img src="https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/2.jpeg" width="250">
-    <img src="https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/flutter_01.png" width="250">
-    <img src="https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/flutter_02.png" width="250">
-</div>
-
-<div style="text-align:center">
-  <img src="https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/flutter_03.png" width="250">
-</div>
+| ![screenshot 1](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/2.jpeg)       | ![screenshot 2](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/flutter_01.png) |
+| --------------------------------------- | --------------------------------------- |
+| !![screenshot 3](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/flutter_02.png) | ![screenshot 4](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/flutter_03.png)        
