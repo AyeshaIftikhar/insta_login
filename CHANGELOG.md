@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Updgraded to latest kotlin versions 
+
 ## 0.0.3
 
 * Users will be able to get Account Type and Media Count
