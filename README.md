@@ -6,9 +6,6 @@ This package is intended to let developers easily integrate instagram integratio
 - Get Access Token for a particular user
 - Get `userid`, `username`, `account_type`, `media_count` and `media`.
 
-| [![Thumbnail](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/2.jpeg)](https://youtube.com/shorts/wElaG-Kq_20?feature=share)      |  
-| --------------------------------------- | --------------------------------------- | 
-
 [![Thumbnail](https://github.com/AyeshaIftikhar/insta_login/blob/main/demo/2.jpeg)](https://youtube.com/shorts/wElaG-Kq_20?feature=share)
 
 

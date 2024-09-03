@@ -1,6 +1,6 @@
 name: insta_login
 description: "This package is intended to let developers easily integrate instagram integration in Flutter Application. We will be using Instagram Basic Display API."
-version: 0.0.6
+version: 0.0.7
 homepage: https://github.com/AyeshaIftikhar/insta_login.git
 
 environment:
