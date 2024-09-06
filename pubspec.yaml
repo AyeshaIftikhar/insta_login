@@ -1,7 +1,15 @@
 name: insta_login
 description: "This package is intended to let developers easily integrate instagram integration in Flutter Application. We will be using Instagram Basic Display API."
-version: 0.0.8
+version: 0.0.9
 homepage: https://github.com/AyeshaIftikhar/insta_login.git
+repository: https://github.com/AyeshaIftikhar/insta_login
+
+topics:
+  - flutter
+  - instagram
+  - login
+  - integration
+  - http
 
 environment:
   sdk: '>=3.2.0 <4.0.0'
@@ -68,3 +76,18 @@ flutter:
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/custom-fonts/#from-packages
+
+funding: 
+  - https://patreon.com/AyeshaIftikhar
+
+screenshots:
+  - description: 'This screenshot is for facebook app setup.'
+    path: setup/1.jpg
+  - description: 'Homepage screenshot'
+    path: demo/flutter_01.png
+  - description: 'After Login and fetched data'
+    path: demo/flutter_02.png
+  - description: 'Detailed Information'
+    path: demo/flutter_03.png  
+  - description: 'Connection Screen'
+    path: demo/2.jpeg

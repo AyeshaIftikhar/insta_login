@@ -1,3 +1,7 @@
+## 0.0.9
+
+* Improved Documentation
+
 ## 0.0.5
 
 * Updgraded to latest kotlin versions 
