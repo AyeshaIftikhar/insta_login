@@ -10,4 +10,6 @@ liberapay: # Replace with a single Liberapay username
 issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
 lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
+buy_me_a_coffer: ayeshaiftikhar
+thanks_dev: ayeshaiftikhar
 custom: ['https://wa.me/923137128036?text=Thank%20you%20for%20supporting%20me%20%E2%9D%A4%0AI%20will%20share%20my%20bank%20details%20with%you%2-soon.%20%E2%9D%A4%0AReceived%20from%20Github!']
