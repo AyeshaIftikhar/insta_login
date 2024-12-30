@@ -1,3 +1,7 @@
+# Important Notice
+Since the `Instagram Basic Display API` has been discontinued by Facebook. This plugin is not longer maintained and up-to-date. And it will not work in any future as well.
+
+
 # Instagram Login/Connect
 
 This package is intended to let developers easily integrate instagram integration in Flutter Application. We will be using `Instagram Basic Display API`. Currently it is supporting the following:

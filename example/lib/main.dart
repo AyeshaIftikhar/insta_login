@@ -1,6 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:insta_login/insta_login.dart';
 import 'package:insta_login/insta_view.dart';
 import 'package:insta_login_example/extensions/numeric.dart';
@@ -8,8 +9,9 @@ import 'package:insta_login_example/widgets/text_widgets.dart';
 
 import 'detail_screen.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load();
   runApp(const MyApp());
 }
 
@@ -196,10 +198,9 @@ class _HomeState extends State<Home> {
                         MaterialPageRoute(
                           builder: (context) {
                             return InstaView(
-                              instaAppId: '215643524910532',
-                              instaAppSecret:
-                                  'b19d87bf98b632e0319f2ebab495b345',
-                              redirectUrl: 'https://ayesha-iftikhar.web.app/',
+                              instaAppId: dotenv.get('appid'),
+                              instaAppSecret: dotenv.get('app_secret'),
+                              redirectUrl: dotenv.get('redirect_url'),
                               onComplete: (_token, _userid, _username) {
                                 WidgetsBinding.instance.addPostFrameCallback(
                                   (timeStamp) {
